@@ -23,6 +23,20 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--dark-bg);
+    position: relative;
+    overflow-x: hidden;
+    background: #000;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%);
+    z-index: -3;
 }
 
 /* Navigation */
@@ -30,12 +44,15 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(26, 26, 46, 0.5);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: var(--transition);
     animation: breathe 8s ease-in-out infinite;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
 }
 
 .nav-content {
@@ -295,10 +312,19 @@ section {
     padding: 5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
     margin-bottom: 2rem;
+    margin: 20px auto;
+    padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 section h2 {
@@ -307,6 +333,7 @@ section h2 {
     color: var(--primary-color);
     position: relative;
     font-size: 2.5rem;
+    width: 100%;
 }
 
 section h2::after {
@@ -361,9 +388,10 @@ section h2::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 0 2rem;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .project-card {
@@ -413,8 +441,11 @@ section h2::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
     background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
     border-radius: 15px;
     margin-top: 2rem;
 }
@@ -475,6 +506,7 @@ section h2::after {
 /* Education Section */
 .timeline {
     position: relative;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
@@ -552,7 +584,10 @@ section h2::after {
     background: url('images/education_bck.jpg') center/cover no-repeat;
 }
 .education-content {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -585,8 +620,11 @@ section h2::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
     background: rgba(255, 255, 255, 0.01);
-    padding: 2rem;
     border-radius: 15px;
     margin-top: 2rem;
 }
@@ -658,14 +696,18 @@ section h2::after {
 }
 
 .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
     position: relative;
     z-index: 2;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
-    padding: 2rem;
     border-radius: 15px;
-    max-width: 600px;
-    margin: 0 auto;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transform: translateY(0);
@@ -800,5 +842,244 @@ footer {
 
     .timeline-content::before {
         left: -30px !important;
+    }
+}
+
+/* Stars */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Galaxies */
+.galaxy {
+    position: fixed;
+    z-index: -1;
+    opacity: 0.3;
+    border-radius: 50%;
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.galaxy-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at center, rgba(255, 0, 255, 0.2) 0%, transparent 70%);
+    top: 10%;
+    left: 10%;
+    animation: galaxyFloat 30s ease-in-out infinite;
+}
+
+.galaxy-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+    top: 60%;
+    right: 10%;
+    animation: galaxyFloat 40s ease-in-out infinite reverse;
+}
+
+/* Spacecraft */
+.spacecraft {
+    position: fixed;
+    z-index: 9999;
+    opacity: 0.7;
+    transition: all 0.5s ease;
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+.rocket {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle at center, #fff 0%, #00f 50%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f, 0 0 20px #00f;
+    animation: fireflyFloat 8s ease-in-out infinite;
+}
+
+.shuttle {
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle at center, #fff 0%, #f0f 50%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f0f, 0 0 20px #f0f;
+    animation: fireflyFloat 10s ease-in-out infinite;
+}
+
+.satellite {
+    width: 5px;
+    height: 5px;
+    background: radial-gradient(circle at center, #fff 0%, #0f0 50%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+    animation: fireflyFloat 12s ease-in-out infinite;
+}
+
+.golden {
+    width: 7px;
+    height: 7px;
+    background: radial-gradient(circle at center, #fff 0%, #ffd700 50%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700;
+    animation: goldenFloat 15s ease-in-out infinite;
+}
+
+/* Firefly Animations */
+@keyframes fireflyFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translate(50px, -30px) scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(100px, 0) scale(1);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translate(50px, 30px) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes fireflyGlow {
+    0% {
+        box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+        opacity: 0.7;
+    }
+    50% {
+        box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+        opacity: 1;
+    }
+    100% {
+        box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+        opacity: 0.7;
+    }
+}
+
+/* Adjust existing animations */
+@keyframes flyRocket {
+    0% {
+        transform: translate(-100px, 100vh) rotate(0deg);
+        z-index: -1;
+    }
+    25% {
+        transform: translate(25vw, 50vh) rotate(0deg);
+        z-index: 100;
+    }
+    50% {
+        transform: translate(50vw, 0) rotate(0deg);
+        z-index: -1;
+    }
+    75% {
+        transform: translate(75vw, 50vh) rotate(0deg);
+        z-index: 100;
+    }
+    100% {
+        transform: translate(calc(100vw + 100px), 100vh) rotate(0deg);
+        z-index: -1;
+    }
+}
+
+@keyframes flyShuttle {
+    0% {
+        transform: translate(calc(100vw + 100px), 100px) rotate(0deg);
+        z-index: -1;
+    }
+    30% {
+        transform: translate(70vw, 30vh) rotate(0deg);
+        z-index: 100;
+    }
+    60% {
+        transform: translate(30vw, 60vh) rotate(0deg);
+        z-index: -1;
+    }
+    90% {
+        transform: translate(10vw, 30vh) rotate(0deg);
+        z-index: 100;
+    }
+    100% {
+        transform: translate(-100px, calc(100vh + 100px)) rotate(0deg);
+        z-index: -1;
+    }
+}
+
+@keyframes flySatellite {
+    0% {
+        transform: translate(-100px, -100px) rotate(0deg);
+        z-index: -1;
+    }
+    20% {
+        transform: translate(20vw, 20vh) rotate(0deg);
+        z-index: 100;
+    }
+    40% {
+        transform: translate(40vw, 40vh) rotate(0deg);
+        z-index: -1;
+    }
+    60% {
+        transform: translate(60vw, 60vh) rotate(0deg);
+        z-index: 100;
+    }
+    80% {
+        transform: translate(80vw, 80vh) rotate(0deg);
+        z-index: -1;
+    }
+    100% {
+        transform: translate(calc(100vw + 100px), calc(100vh + 100px)) rotate(0deg);
+        z-index: -1;
+    }
+}
+
+/* Animations */
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes galaxyFloat {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(50px, 50px) rotate(180deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+@keyframes goldenFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+        box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    }
+    25% {
+        transform: translate(30px, -20px) scale(1.3);
+        opacity: 1;
+        box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700;
+    }
+    50% {
+        transform: translate(60px, 0) scale(1);
+        opacity: 0.7;
+        box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    }
+    75% {
+        transform: translate(30px, 20px) scale(1.3);
+        opacity: 1;
+        box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+        box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
     }
 } 
