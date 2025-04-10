@@ -116,7 +116,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('images/earth.jpg') center/cover no-repeat;
+    /* background: url('images/earth.jpg') center/cover no-repeat; */
     background-size: 400% 400%;
     color: white;
     position: relative;
