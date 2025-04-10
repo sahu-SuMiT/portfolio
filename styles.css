@@ -420,7 +420,7 @@ section h2::after {
 }
 /* projects section */
 #profile {
-    background: url('images/earth.jpg ') center/cover no-repeat;
+    background: url('images/profile_bck.jpg ') center/cover no-repeat ;
 }
 /* Projects Section */
 .projects {
@@ -646,7 +646,7 @@ section h2::after {
     margin-left: 1rem;
 }
 #education {
-    background: url('images/education_bck.jpg') center/cover no-repeat;
+    /* background: url('images/education_bck.jpg') center/cover no-repeat; */
 }
 .education-content {
     display: flex;
@@ -662,7 +662,7 @@ section h2::after {
     width: 50rem;
     height: 50rem;
     position: absolute;
-    top: -20rem;
+    top: -15rem;
     left: -10rem;
     z-index: 1;
     animation: float 6s ease-in-out infinite;
